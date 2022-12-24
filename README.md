@@ -1,7 +1,7 @@
 
 # WhoisAPI
 
-WhoisAPI is a software with an API interface through which you can get Whois data by making an API request and passing an IP address.
+WhoisAPI is a software with an API interface through which you can get IP-Address Whois data by making an API request and passing an IP address.
 
 ## Installation
 
