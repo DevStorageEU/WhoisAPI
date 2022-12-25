@@ -13,10 +13,12 @@ and passing an IP address.
 
 ## Installation
 
-`git clone https://github.com/DevStorageEU/WhoisAPI.git`
-`cd WhoisAPI/application/`
-`composer install`
-`mv .env.example .env`
+```
+git clone https://github.com/DevStorageEU/WhoisAPI.git
+cd WhoisAPI/application/
+composer install
+mv .env.example .env
+```
 
 ## Configuration
 
