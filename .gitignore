@@ -1,0 +1,7 @@
+/.idea
+/application/vendor
+/application/Homestead.json
+/application/Homestead.yaml
+/application/.env
+/application/.phpunit.result.cache
+/application/composer.lock
