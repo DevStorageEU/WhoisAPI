@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-use Devstorage\Controller\IndexController;
 use Devstorage\Router;
 
 require_once __DIR__ . '/../vendor/autoload.php';

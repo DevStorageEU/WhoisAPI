@@ -4,12 +4,12 @@ namespace Devstorage;
 
 use Devstorage\Attribute\Route;
 use InvalidArgumentException;
+use OutOfRangeException;
 use ReflectionClass;
 use ReflectionException;
 
 class Router
 {
-
     private array $routes = [];
     private string $baseUri;
 
@@ -25,7 +25,7 @@ class Router
         }
     }
 
-    public function setBaseURI(string $baseUri): void
+    public function setBaseUri(string $baseUri): void
     {
         $this->baseUri = $baseUri;
     }
@@ -95,7 +95,7 @@ class Router
                 if (str_starts_with($urlPart, '{')) {
                     $routeParameter = explode(' ', preg_replace('/{([\w\-%]+)(<(.+)>)?}/', '$1 $3', $urlPart));
                     $paramName = $routeParameter[0];
-                    $paramRegExp = (empty($routeParameter[1]) ? '[\w\-]+' : $routeParameter[1]);
+                    $paramRegExp = (empty($routeParameter[1]) ? '[-a-zA-Z0-9@:.]+' : $routeParameter[1]);
 
                     if (preg_match('/^' . $paramRegExp . '$/', $requestArray[$index])) {
                         $params[$paramName] = $requestArray[$index];
@@ -116,7 +116,7 @@ class Router
     public function generateUrl(string $routeName, array $parameters = []): string
     {
         if (!isset($this->routes[$routeName])) {
-            throw new \OutOfRangeException(sprintf(
+            throw new OutOfRangeException(sprintf(
                 'The route does not exist. Check that the given route name "%s" is valid.',
                 $routeName
             ));
